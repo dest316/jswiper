@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+}
+
+div.main-container {
+    font-family: 'Candara';
+    display: flex;
+    width: 60vw;
+    margin: 3vh;
+    border: solid 2px #B6ED2B;
+    border-radius: 20px;
+    padding: 4vh;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: #B6ED2B;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+}
+div.main-container * {
+    margin: 1vh;
+}
+
+button {
+    font-family: 'Candara';
+    background-color: #B6ED2B;
+    color: black;
+    font-size: 2.2rem;
+    width: 30%;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+div input {
+    width: 50%;    
+    margin: 1vh;
+    font-size: 2.2rem;
+    border: solid 1px #B6ED2B;
+}
+
+a {
+    text-decoration: none;
+    color: #98C7FF;
+}
+
+.error-message {
+    font-size: 1rem;
+    color: red;
+}
+
+.reg-label {
+    color: #EAEBED;
+    font-size: 1rem;
+}

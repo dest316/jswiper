@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="../static/css/main.css">
+	<title>JSwiper – рекрутинговый сервис для HR с поддержкой свайпов</title>
+</head>
+<body>
+	<div id="description">
+JSwiper - это инновационный рекрутинговый сервис, который упрощает поиск и отбор кандидатов для HR-специалистов
+		с помощью удобной функции свайпов. Наша платформа позволяет быстро просматривать профили и принимать решения
+		с легкостью, делая процесс подбора персонала быстрым и эффективным.
+	</div>
+	<div>Уже&nbsp;<span id="amount_companies"></span>&nbsp;нашим сервисом, попробуйте и вы!</div>
+	<div id="buttons-block">
+		<button id="log_in_button">Войти</button>
+		<button id="first_reg_button">Зарегистрироваться</button>
+	</div>
+	<div class="registration">
+		
+			<label for="input_name">Введите название вашей компании:</label>
+			<input type="text" id="input_name">
+			<label for="input_login">Придумайте логин для входа на сайт:</label>
+			<input type="text" id="input_login">
+			<label for="input_pass">Придумайте пароль для вашей аутентификации на сайте:</label>
+			<input type="password" id="input_pass">
+			<label for="repeat_pass">Повторите пароль</label>
+			<input type="password" id="repeat_pass">
+			<div id="checkbox-group"><label for="confirm">Я согласен с <a>условиями использования</a> приложения</label>
+			<input type="checkbox" id="confirm"></div>
+			<button id="second_reg_button">Создать аккаунт</button>
+    	
+	</div>
+</body>
+<script src="../static/scripts/ui/get_count_users.js"></script>
+<script src="../static/scripts/ui/main_buttons_handler.js"></script>
+<script src="../static/scripts/ui/blur_handlers.js"></script>
+</html>

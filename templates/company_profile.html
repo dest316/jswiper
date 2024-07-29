@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="../static/css/company.css">
+	<title>{{company_name}}</title>
+</head>
+<body>
+	<div class="panel">
+		<div id="app-icon">
+			<img src="../static/media/jswiper_icon.png" width="50px">
+		</div>
+		<div style="display: flex; flex-direction: row;">
+			<div id="change-icon" title="Редактировать вакансии">
+				<img src="../static/media/change_icon.png" width="50px">
+			</div>
+			<div id="logout-icon" title="Выйти из аккаунта">
+				<img src="../static/media/logout_icon.webp" width="50px">
+			</div>
+		</div>
+		
+	</div>
+	<div class="company-info">
+		<label>Добро пожаловать в меню вакансий компании <b>{{company_name}}</b></label>
+	</div>
+	<div class="add-button-wrapper">
+		
+	</div>
+	<div class="vacancy-container">
+		
+	</div>
+	<div class="vacancy-helper">
+		<div class="close-panel">
+			<span class="exit">[ x ]</span>
+		</div>
+		<div class="work-area">
+			
+		</div>
+		<button class="confirm">Default</button>
+	</div>
+</body>
+<script src="../static/scripts/ui/company_profile.js"></script>
+</html>
