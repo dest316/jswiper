@@ -3,25 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="../static/css/discover.css">
 </head>
 <body>
-	<div class="panel">
-		<div><img src="../static/media/profile_icon.png" width="50px"></div>
-	</div>
-	<div class="content">
-		<div class="employee-card">
-			<div class="card">
-				<img src="#">
-				
-			</div>
-			<div class="action-buttons">
-				<img src="../static/media/yes_icon.png" width="50px">
-				<img src="../static/media/no-icon.png" width="50px">
-			</div>
+	<div class="site">
+		<div class="panel">
+			<div><img src="../static/media/profile_icon.png" width="50px"></div>
 		</div>
-		<div class="message-container">
-
+		<div class="outer-content">
+			<div class="content">
+				<div class="employee-card">
+					<div class="card">
+						<img src="../static/media/{{employee['employee_path_to_avatar']}}" id="card-photo">
+					</div>
+					<div class="action-buttons">
+						<img src="../static/media/yes_icon.png" width="50px" class="action-button" id="yes-btn">
+						<img src="../static/media/no-icon.png" width="50px" class="action-button" id="no-btn">
+					</div>
+				</div>
+				<div class="message-container">
+					
+				</div>
+			</div>
+			<div class="chat">
+				some chat
+			</div>
 		</div>
 	</div>
 </body>
+<script src="../static/scripts/ui/discover.js"></script>
 </html>

@@ -1,0 +1,61 @@
+body, html {
+    margin: 0;
+    color: #EAEBED;
+    padding: 0;
+    height: 100%;
+}
+div.site {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#card-photo {
+    width: 30vw;
+    
+}
+div.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60vw;
+    background-color: black;
+    height: 100%;
+}
+div.employee-card {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #292929;
+    min-height: 60vh;
+}
+div.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 30vw;
+    border: 2px solid #B6ED2B;
+}
+div.card {
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    background-color: #B6ED2B;
+}
+div.panel {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    padding: 1vh;
+    border-bottom: solid 1vh #B6ED2B;
+}
+div.chat {
+    display: flex;
+    background-color: #292929;
+    height: 100%;
+    flex: 1;
+}
+div.outer-content {
+    display: flex;
+    height: 100%;
+}
