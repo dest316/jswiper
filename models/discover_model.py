@@ -1,5 +1,3 @@
-import random
-
 import pandas as pd
 
 
@@ -16,6 +14,7 @@ FROM (
     LEFT JOIN AnswerVacancy USING (employee_id)
     WHERE answer_last_timestamp IS NULL 
        OR (CAST(strftime("%s", "now") AS NUMERIC) - answer_last_timestamp > 180)
+       AND answer_result = 0
 ) 
 ORDER BY RANDOM() 
 LIMIT 1;
@@ -38,7 +37,8 @@ def get_chatted_users(conn, vacancy_hash):
     FROM answers
     JOIN vacancies USING (vacancy_id)
     JOIN employees USING (employee_id)
-    WHERE vacancy_hash = "{vacancy_hash}";''', conn)
+    WHERE vacancy_hash = "{vacancy_hash}" 
+    AND answer_result = 1;''', conn)
 
 
 def set_answer(conn, **data):

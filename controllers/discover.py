@@ -27,35 +27,26 @@ def index(query):
         return redirect(f'{request.root_url}auth')
 
 
-@app.route("/api/get_employee_data")
-def set_card():
-    pass
-
-
 @app.route("/api/load_employee", methods=["POST"])
 def load_employee():
     conn = get_db_connection()
-    #print(session['last_users_id'])
     chatted_users = get_chatted_users(conn, request.json["token"])
     current_employee = get_employee_by_id(session["last_users_id"].get(request.json["token"]), conn)
-    #print("current_employee: ", current_employee)
     if current_employee is None or current_employee.size == 0:
         current_employee = get_random_employee(conn, request.json["token"])
-        #print(current_employee)
         if current_employee is not None:
             session["last_users_id"][request.json["token"]] = current_employee["employee_id"]
     else:
         current_employee = current_employee.iloc[0].to_dict()
-        #print("modified_current_employee: ", current_employee)
-    #print(chatted_users)
     return jsonify({"users": [{"name": user["name"], "description": user["description"]} for _, user in chatted_users.iterrows()],
                     "current_employee": current_employee})
 
 
 @app.route("/api/swipe", methods=["POST"])
 def swipe():
+    if request.json["employee_id"] is None:
+        return "success", 200
     conn = get_db_connection()
-    print(request.json["token"])
     session["last_users_id"][request.json["token"]] = None
     session.modified = True
     set_answer(conn, vacancy_id=get_vacancy_by_token(conn, request.json["token"])["vacancy_id"], employee_id=int(request.json["employee_id"]), result=request.json["result"])
