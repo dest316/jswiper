@@ -51,4 +51,8 @@ def swipe():
     session.modified = True
     set_answer(conn, vacancy_id=get_vacancy_by_token(conn, request.json["token"])["vacancy_id"], employee_id=int(request.json["employee_id"]), result=request.json["result"])
     return "success", 200
-    
+
+
+@app.route("/api/get_login", methods=["POST"])
+def get_login():
+    return jsonify({"login": session["login"]})

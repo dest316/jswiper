@@ -75,3 +75,14 @@ div.outer-content {
     display: flex;
     height: 100%;
 }
+div.message-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+div.property {
+    font-size: 1.3rem;
+}
+div.grn {
+    color: #99FF99
+}

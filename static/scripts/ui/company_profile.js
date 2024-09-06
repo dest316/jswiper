@@ -97,7 +97,7 @@ $(document).on('click', 'button.confirm', () => {
         success: (data) => {
             if (data.result === 'ok') {
                 if (data.new_id !== undefined){
-                    $('.vacancy-container').append(`<div class="vacancy-item" id="${data.new_id}"><span class="vacancy-name">${$('#vacancy_name input').val()}</span></div>`)
+                    $('.vacancy-container').append(`<div class="vacancy-item" id="${data.new_id}" name="${data.new_hash}"><span class="vacancy-name">${$('#vacancy_name input').val()}</span></div>`)
                     $('.manipulate-buttons').remove()
                 }
                 $('.work-area').html('')

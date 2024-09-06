@@ -64,4 +64,4 @@ def update_vacancy_data():
         # To-do: При добавлении новой вакансии на нее нельзя сразу перейти, работает только после перезагрузки страницы
         last_row_id = add_vacancy(conn, get_company_id_by_login(conn, session['login']), request.json['data'])
         update_vacancy(conn, last_row_id, {'vacancy_hash': generate_vacancy_token(session['login'], last_row_id)})
-        return jsonify({'result': 'ok', 'new_id': last_row_id})
+        return jsonify({'result': 'ok', 'new_id': last_row_id, "new_hash": generate_vacancy_token(session['login'], last_row_id)})

@@ -1,3 +1,10 @@
+const employee_table = {
+    "employee_full_name": "ФИО:",
+    "employee_age": "Возраст:",
+    "employee_stack": "Стек:",
+    "employee_experience": "Опыт работы:",
+    "employee_description": "Информация о себе:"
+}
 
 function on_loading_page() {
     $.ajax("/api/load_employee", {
@@ -25,8 +32,12 @@ function on_loading_page() {
                 $("#card-photo").attr("src", `../static/media/${data.current_employee["employee_path_to_avatar"]}`)
                 $(".message-container").empty()
                 for (let item in data.current_employee) {
-                    $(".message-container").append(data.current_employee[item])
+                    console.log(item)
+                    if (employee_table[item] !== undefined) {
+                        $(".message-container").append(`<div class="property">${employee_table[item]} ${data.current_employee[item]}</div>`)
+                    }
                 }
+                $(".message-container").append(`<div class="property grn">Зарплатные ожидания: ${data.current_employee["employee_salary_from"]} - ${data.current_employee["employee_salary_to"]}</div>`)
                 sessionStorage.setItem("employee_id", data.current_employee["employee_id"])
             }
         }
@@ -47,5 +58,15 @@ $("img.action-button").on("click", function() {
             "result": result
         }),
         success: on_loading_page
+    })
+})
+
+$("#back-to-profile").on("click", () => {
+    $.ajax("/api/get_login", {
+        type: "POST",
+        contentType: "application/json",
+        success: (data) => {
+            window.location.pathname = `home/${data.login}`
+        }
     })
 })
