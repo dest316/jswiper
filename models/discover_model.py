@@ -2,6 +2,10 @@ import pandas as pd
 
 
 def get_random_employee(conn, vacancy_hash):
+    vacancy_info = pd.read_sql(f'''
+    SELECT vacancy_experience, vacancy_salary_to FROM vacancies WHERE vacancy_hash = '{vacancy_hash}'
+;''', conn)
+    vacancy_st, vacancy_ex = vacancy_info.at[0, "vacancy_salary_to"], vacancy_info.at[0, "vacancy_experience"]
     employee = pd.read_sql(f'''
     SELECT * 
 FROM (
@@ -12,9 +16,11 @@ FROM (
     SELECT * 
     FROM employees 
     LEFT JOIN AnswerVacancy USING (employee_id)
-    WHERE answer_last_timestamp IS NULL 
+    WHERE (answer_last_timestamp IS NULL 
        OR (CAST(strftime("%s", "now") AS NUMERIC) - answer_last_timestamp > 180)
-       AND answer_result = 0
+       AND answer_result = 0)
+       AND employee_experience >= {vacancy_ex}
+       AND employee_salary_from <= {vacancy_st}
 ) 
 ORDER BY RANDOM() 
 LIMIT 1;
